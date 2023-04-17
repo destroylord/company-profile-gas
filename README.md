@@ -43,5 +43,7 @@ Untuk Login admin:
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/destroylord/company-profile-gas/blob/main/public/ss/login.png)
+![App Screenshot](https://github.com/destroylord/company-profile-gas/blob/main/public/ss/dashboard.png)
+![App Screenshot](https://github.com/destroylord/company-profile-gas/blob/main/public/ss/landing-page.png)
 
