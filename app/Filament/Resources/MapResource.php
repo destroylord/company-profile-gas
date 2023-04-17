@@ -27,7 +27,7 @@ class MapResource extends Resource
             ->schema([
                 FileUpload::make('image')
                  ->required()
-                    ->directory('features')
+                    ->directory('map')
                     ->maxSize(5120)
             ]);
     }

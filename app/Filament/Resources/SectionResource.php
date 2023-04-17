@@ -6,6 +6,7 @@ use App\Filament\Resources\SectionResource\Pages;
 use App\Filament\Resources\SectionResource\RelationManagers;
 use App\Models\Section;
 use Filament\Forms;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -28,13 +29,11 @@ class SectionResource extends Resource
                 TextInput::make('title')
                 ->label('Judul')
                     ->placeholder('kolom harus diisi...')
+                    ->required(),
+                Textarea::make('short_description')
+                    ->label(__('Short Deskripsi'))
                     ->required()
-                    ->autofocus(),
-                TextInput::make('short_description')
-                ->label('Deskripsi')
-                    ->placeholder('kolom harus diisi...')
-                    ->required()
-                    ->autofocus(),
+                    ->rows(5)->autofocus(),
             ]);
     }
 

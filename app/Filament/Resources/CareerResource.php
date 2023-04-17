@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ShopCategoryResource\Pages;
-use App\Filament\Resources\ShopCategoryResource\RelationManagers;
-use App\Models\ShopCategory;
+use App\Filament\Resources\CareerResource\Pages;
+use App\Filament\Resources\CareerResource\RelationManagers;
+use App\Models\Career;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
@@ -13,12 +13,14 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ShopCategoryResource extends Resource
+class CareerResource extends Resource
 {
-    protected static ?string $model = ShopCategory::class;
+    protected static ?string $model = Career::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -27,22 +29,18 @@ class ShopCategoryResource extends Resource
         return $form
             ->schema([
                 TextInput::make('title')
-                ->label('Judul Toko')
+                ->label('Nama')
                     ->placeholder('kolom harus diisi...')
                     ->required()
                     ->autofocus(),
-            Textarea::make('short_description')
-                ->label(__('Short Deskripsi'))
-                ->required()
-                ->rows(2)
-                ->minLength(50),
-            FileUpload::make('image')
-                ->label(__("Foto Toko"))
+                FileUpload::make('image')
                  ->required()
-                    ->directory('shopCategory')
+                    ->directory('career')
                     ->maxSize(5120),
-                
-
+                Textarea::make('description')
+                    ->label(__('Short Deskripsi'))
+                    ->required()
+                    ->rows(5)->autofocus(),
             ]);
     }
 
@@ -50,7 +48,10 @@ class ShopCategoryResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('title'),
+                ImageColumn::make('image')
+                ->circular()
+                ->disk('public')
             ])
             ->filters([
                 //
@@ -73,9 +74,9 @@ class ShopCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListShopCategories::route('/'),
-            'create' => Pages\CreateShopCategory::route('/create'),
-            'edit' => Pages\EditShopCategory::route('/{record}/edit'),
+            'index' => Pages\ListCareers::route('/'),
+            'create' => Pages\CreateCareer::route('/create'),
+            'edit' => Pages\EditCareer::route('/{record}/edit'),
         ];
     }    
 }
