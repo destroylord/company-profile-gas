@@ -10,6 +10,7 @@ use App\Models\Section;
 use App\Models\SectionContent;
 use App\Models\ShopCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WebController extends Controller
 {

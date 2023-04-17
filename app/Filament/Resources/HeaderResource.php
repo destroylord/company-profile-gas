@@ -6,6 +6,9 @@ use App\Filament\Resources\HeaderResource\Pages;
 use App\Filament\Resources\HeaderResource\RelationManagers;
 use App\Models\Header;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -24,7 +27,19 @@ class HeaderResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('title')
+                ->label('Nama fitur')
+                    ->placeholder('kolom harus diisi...')
+                    ->required()
+                    ->autofocus(),
+                FileUpload::make('hero_right')
+                    ->required()
+                       ->directory('header')
+                       ->maxSize(5120),
+                Textarea::make('short_description')
+                       ->label(__('Short Deskripsi'))
+                       ->required()
+                       ->rows(5)->autofocus(),
             ]);
     }
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Appland Bootstrap Template - Index</title>
+  <title>Company Profile - GAS Application</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
-          <img src="assets/img/hero-img.png" class="img-fluid" alt="">
+          <img src="{{ ($header->hero_right == null) ? asset('assets/img/hero-img.png') : url('storage/'.$header->hero_right)}}" class="img-fluid" alt="">
         </div>
       </div>
     </div>

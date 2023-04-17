@@ -17,7 +17,13 @@
       @if ($section->id == 3)
           @include('sections.map')
       @endif
+      @if ($section->id == 4)
+        @include('sections.content-section')
+      @endif
       @if ($section->id == 5)
+          <div id="tentang-kami"></div>
+      @endif
+      @if ($section->id == 6)
           @include('sections.career')
       @endif
   </div>
